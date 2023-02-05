@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;500;600;700&display=swap');
+
+:root{
+    /**/
+    --font-normal: 'Red Hat Text', sans-serif;;
+    /**/
+    --typeColor: hsl(237, 18%, 59%);
+    --timeColor : hsl(345, 95%, 68%);
+
+    /**/    
+    --white: #ffffff;
+    --desaturatedBlue: #343650;
+    --darkBlue: #1e1f29;
+    --veryDarkBlue: #191a24;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../images/pattern-hills.svg"), url("../images/bg-stars.svg");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-color: var(--darkBlue);
+}
+
+h2{
+    text-transform: uppercase;
+    font-family: var(--font-normal);
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 5px;
+    word-spacing: 10px;
+    color: var(--white);
+    text-align: center;
+    padding: 100px 0px;
+}
+
+main{
+    display: flex;
+    justify-content: space-around;
+}
+
+.time{
+    display: flex;
+    flex-direction: column;
+}
+
+.timeNumber{
+    border-radius: 5px;
+    background-color: var(--desaturatedBlue);
+    background-image: radial-gradient(circle at left center, var(--veryDarkBlue) 5px, transparent 0), radial-gradient(circle at right center, var(--veryDarkBlue) 5px, transparent 0);
+    box-shadow: 0px 8px 0px var(--veryDarkBlue), inset 0px 60px rgba(0, 0, 0, 0.185);
+    /**/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /**/
+    width: 120px;
+    height: 120px;
+}
+
+.timeNumber>p{
+    font-family: var(--font-normal);
+    font-size: 4rem;
+    font-weight: 700;
+    color: transparent;
+    background-image: linear-gradient(to top, var(--timeColor) 50%, #bd506b 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.typeTime{
+    padding-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--typeColor);
+    letter-spacing: 3px;
+    font-family: var(--font-normal);
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.redes{
+    position: relative;
+    bottom: -150px;
+    text-align: center;
+}
+
+svg{
+    margin: 0px 10px;
+    cursor: pointer;
+}
+
+svg:hover path{
+    fill: var(--timeColor);
+}
