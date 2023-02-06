@@ -1,0 +1,52 @@
+@media (max-width: 560px){
+    main{
+        width: 420px;
+    }
+
+    .timeNumber{
+        width: 80px;
+        height: 80px;
+        box-shadow: 0px 8px 0px var(--veryDarkBlue), inset 0px 40px rgba(0, 0, 0, 0.185);
+    }
+
+    .timeNumber>p{
+        font-size: 2rem;
+    }
+
+    .typeTime{
+        font-size: 0.6rem;
+    }
+
+    .redes{
+        bottom: -195px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    h2{
+        font-size: 1rem;
+    }
+
+    main{
+        width: 100vw;
+    }
+
+    .timeNumber{
+        width: 60px;
+        height: 60px;
+        box-shadow: 0px 8px 0px var(--veryDarkBlue), inset 0px 30px rgba(0, 0, 0, 0.185);
+    }
+
+    .timeNumber>p{
+        font-size: 2rem;
+    }
+
+    .typeTime{
+        font-size: 0.55rem;
+    }
+
+    .redes{
+        bottom: -225px;
+    }
+}
