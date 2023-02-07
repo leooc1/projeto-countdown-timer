@@ -34,7 +34,7 @@ function countdown(dia, hora, minutos, segundos){
         hora = 24 - hora - 1
     }
     else{
-        hora = soonHours - hora +1;
+        hora = soonHours - hora;
         if(hora<0) hora *= -1
     }
     minutos = soonMinutes - minutos - 1;
