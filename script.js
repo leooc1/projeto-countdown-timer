@@ -6,84 +6,41 @@ var h = 19;
 var m = 0;
 
 var timeReset=setInterval(()=>{
-    let data = new Date();
+    let dataFuture = new Date();
+    let mes = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    let dataCurrent = new Date(`${mes[dataFuture.getMonth()]} ${d} 2023 ${h}:${m}:00`);
 
-    let day = data.getDate();
-    let hrs = data.getHours();
-    let min = data.getMinutes();
-    let seg = data.getSeconds();
-
-    countdown(day, hrs, min, seg)
+    countdown(dataFuture,dataCurrent)
 })
 
-function countdown(dia, hora, minutos, segundos){
-    var soonDay = d;
-    var soonHours = h;
-    var soonMinutes = m;
-    var soonSeconds = 0;
+function countdown(future, current){
 
-    soonMinutes += 60;
-    soonSeconds += 60;
+    let difference = current - future;
 
-    dia = soonDay - dia;
-    if(dia<0) dia *= -1
-    if(dia>0 && hora>=soonHours && hora<24){
-        dia -= 1 
-        hora = soonHours - hora;
-        if(hora<0) hora *= -1
-        hora = 24 - hora - 1
-    }
-    else{
-        hora = soonHours - hora;
-        if(hora<0) hora *= -1
-    }
-    minutos = soonMinutes - minutos - 1;
-    if(minutos<0) minutos *= -1
-    if(minutos>=60){
-        minutos-=60
-    }
-    else if(minutos<0){
-        minutos *= -1
-    } 
-    segundos = soonSeconds - segundos;
-    if(segundos<0) segundos *= -1
-    if(segundos>=60){
-        segundos-=60
-    }
-    else if(segundos<0){
-        segundos *= -1
-    } 
-    
-    if(dia<10) dia = "0"+dia 
-    if(hora<10) hora = "0"+ (hora-1)
-    if(minutos<10) minutos = "0"+ (minutos)
-    if(segundos<10) segundos = "0"+segundos
-    if(segundos==60) segundos = "00"
+    let day = document.querySelector('#day')
+    let hrs = document.querySelector('#hrs')
+    let min = document.querySelector('#min')
+    let seg = document.querySelector('#seg')
 
-    if(dia=="00" && hora=="00" && minutos=="00" && segundos=="01"){
-        clearInterval(timeReset)
-        setTimeout(()=>{
-            document.querySelector('#day').innerHTML = "00"
-            document.querySelector('#hrs').innerHTML = "00"
-            document.querySelector('#min').innerHTML = "00"
-            document.querySelector('#seg').innerHTML = "00"
-        },1000)
-    }
-    
-    document.querySelector('#day').innerHTML = dia
-    document.querySelector('#hrs').innerHTML = hora
-    document.querySelector('#min').innerHTML = minutos
-    document.querySelector('#seg').innerHTML = segundos
+    day.innerText = Math.floor(difference / 1000 / 60 / 60 /24)
+    hrs.innerText = Math.floor(difference / 1000 / 60 / 60 ) % 24
+    min.innerText = Math.floor(difference / 1000 / 60 ) % 60
+    seg.innerText = Math.floor(difference / 1000 ) % 60
+
+    day.innerText = day.innerText < 10 ? "0" + day.innerText : day.innerText 
+    hrs.innerText = hrs.innerText < 10 ? "0" + hrs.innerText : hrs.innerText 
+    min.innerText = min.innerText < 10 ? "0" + min.innerText : min.innerText 
+    seg.innerText = seg.innerText < 10 ? "0" + seg.innerText : seg.innerText 
 }
 
 function tradeDay(){
-    d = Number(window.prompt("Dia para contagem regressiva: "))
+    d = window.prompt("Digite um dia para a contagem regressiva:")
 }
 
 function tradeHour(){
-    h = Number(window.prompt("Hora para contagem regressiva: "))
+    h = window.prompt("Digite a hora para a contagem regressiva:")
 }
 
 function tradeMinutes(){
-    m = Number(window.prompt("Minuto para contagem regressiva: "))
+    m = window.prompt("Digite o minuto para a contagem regressiva:")
 }
